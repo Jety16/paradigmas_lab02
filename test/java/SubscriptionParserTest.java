@@ -1,3 +1,6 @@
+
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
@@ -5,13 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import parser.SubscriptionParser;
 
 public class SubscriptionParserTest {
-    private SubscriptionParser subscriptionParser = new SubscriptionParser() {
-        @Override
-        public JSONObject makeResponse(JSONObject jsonObj) {
-            // For testing purposes, return an empty JSON object
-            return new JSONObject();
-        }
-    };
+    SubscriptionParser subscriptionParser = new SubscriptionParser();
 
     @Test
     public void testParseJson() throws IOException {
@@ -44,5 +41,15 @@ public class SubscriptionParserTest {
         expectedJsonObj.put("reddit", subscriptionParser.getFilteredUrls(subscriptionParser.parseJson(filePath), "reddit"));
         JSONObject actualJsonObj = subscriptionParser.parseFile(filePath);
         assertEquals(expectedJsonObj.toString(), actualJsonObj.toString());
+    }
+    public static void main(String[] args){
+        SubscriptionParserTest test = new SubscriptionParserTest();
+        try {
+            test.testParseJson();
+            test.testGetFilteredUrls();
+            test.testParseFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

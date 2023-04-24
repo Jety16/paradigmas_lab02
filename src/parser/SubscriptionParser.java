@@ -14,7 +14,7 @@ import java.nio.file.Paths;
  * Leer https://www.w3docs.com/snippets/java/how-to-parse-json-in-java.html
  * */
 
-public abstract class SubscriptionParser extends GeneralParser {
+public class SubscriptionParser extends GeneralParser {
 
     public JSONObject parseJson(String filePath) throws IOException {
         String jsonStr = new String(Files.readAllBytes(Paths.get(filePath)));
@@ -23,7 +23,7 @@ public abstract class SubscriptionParser extends GeneralParser {
     }
 
 
-    private JSONArray getFilteredUrls(JSONObject json, String filterUrlType) {
+    public JSONArray getFilteredUrls(JSONObject json, String filterUrlType) {
         JSONArray filteredUrls = new JSONArray();
 
         for (int i = 0; i < json.length(); i++) {

@@ -11,8 +11,12 @@ public abstract class GeneralParser {
 
     public abstract JSONObject makeResponse(JSONObject jsonObj);
         
-    public abstract JSONObject parseUrl(JSONArray urlList, String type);
+    public JSONObject parseUrl(JSONArray urlList, String type){
+        return null;
+    }
 
-    public abstract JSONObject parseFile(String filePath) throws IOException;
+    public JSONObject parseFile(String filePath) throws IOException {
+        return null;
+    }
 
 }
