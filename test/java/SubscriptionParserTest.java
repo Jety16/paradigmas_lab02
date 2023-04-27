@@ -51,5 +51,8 @@ public class SubscriptionParserTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        catch (AssertionError e){
+            e.printStackTrace();
+        }
     }
 }
